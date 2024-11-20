@@ -9,6 +9,7 @@ export default function BattlePage() {
     setLogs([]);
     try {
       const response = await fetch("/api/simulation");
+      if (!response.ok) throw new Error(`API error: ${response.statusText}`);
       const data = await response.json();
       setLogs(data.logs);
     } catch (error) {
@@ -23,11 +24,11 @@ export default function BattlePage() {
     <div
       style={{
         fontFamily: "monospace",
-        color: "#00FF00", // Green text for terminal style
-        backgroundColor: "#000000", // Black background
+        color: "#00FF00", // Terminal green
+        backgroundColor: "#000000", // Terminal black
         padding: "20px",
-        height: "100vh", // Full screen height
-        overflowY: "scroll", // Scrollable logs
+        height: "100vh",
+        overflowY: "scroll",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
