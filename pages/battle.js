@@ -20,24 +20,45 @@ export default function BattlePage() {
   };
 
   return (
-    <div style={{ fontFamily: "monospace", padding: "20px" }}>
-      <h1>Battle Simulation</h1>
+    <div
+      style={{
+        fontFamily: "monospace",
+        color: "#00FF00", // Green text for terminal style
+        backgroundColor: "#000000", // Black background
+        padding: "20px",
+        height: "100vh", // Full screen height
+        overflowY: "scroll", // Scrollable logs
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h1 style={{ color: "#00FF00", marginBottom: "20px" }}>Battle Simulation</h1>
       <button
         onClick={startBattle}
         style={{
           padding: "10px 20px",
           fontSize: "16px",
           cursor: "pointer",
-          backgroundColor: "#0070f3",
-          color: "white",
-          border: "none",
+          backgroundColor: "#333333",
+          color: "#00FF00",
+          border: "1px solid #00FF00",
           borderRadius: "5px",
+          marginBottom: "20px",
         }}
       >
         Start Battle
       </button>
       {loading && <p>Battle in progress... This might take some time!</p>}
-      <pre style={{ marginTop: "20px", whiteSpace: "pre-wrap" }}>
+      <pre
+        style={{
+          marginTop: "20px",
+          whiteSpace: "pre-wrap",
+          textAlign: "left",
+          width: "100%",
+          maxWidth: "800px",
+        }}
+      >
         {logs.join("\n")}
       </pre>
     </div>
